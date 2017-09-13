@@ -9,7 +9,6 @@ def main(comp,off):
 
     avg=avrg(closep,50)
     offset33=offset(avg,off)
-    closep=np.flipud(data['Close'].values)
     p,n,a=ADX(comp)
 
     a=a[50+off-1:]
@@ -35,7 +34,7 @@ def main(comp,off):
     r=[]
     for i in range(np.size(entry)):
         x.append(p[entry[i]])        
-        y.append(closep[entry[i]]-avg[entry[i]])
+        y.append((closep[entry[i]]+avg[entry[i]])/(closep[entry[i]]-avg[entry[i]]))
         r.append(closep[b[i]]-closep[entry[i]])
 
     return x,y,r

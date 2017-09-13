@@ -20,6 +20,13 @@ def main(comp):
     for i in range(8,50):
         x,y,r=adxmodel.main(comp,i)
         p,n=clusterfinder.main(x,y,r)
+        if i<50 and i>40:
+            plt.scatter(p[0],p[1],color='blue',marker='x')
+            plt.scatter(n[0],n[1],color='blue',marker='o')
+            X40.append([p[0],p[1]])
+            X40.append([n[0],n[1]])
+            Y40.append(1)
+            Y40.append(0)
         if i<20:
             plt.scatter(p[0],p[1],color='green',marker='x')
             plt.scatter(n[0],n[1],color='green',marker='o')
@@ -41,13 +48,7 @@ def main(comp):
             X30.append([n[0],n[1]])
             Y30.append(1)
             Y30.append(0)
-        elif i<50:
-            plt.scatter(p[0],p[1],color='blue',marker='x')
-            plt.scatter(n[0],n[1],color='blue',marker='o')
-            X40.append([p[0],p[1]])
-            X40.append([n[0],n[1]])
-            Y40.append(1)
-            Y40.append(0)
+
     plt.title(comp)
     w,I=clf.main(X10,Y10)
     a=-w[0]/w[1]
@@ -65,4 +66,5 @@ def main(comp):
     a=-w[0]/w[1]
     yy=a*xx - I[0]/w[1]
     plt.plot(xx,yy,color='blue',label='40-50')
+    plt.legend()
     plt.show()
