@@ -1,6 +1,6 @@
 import pandas as pd
 from averages import *
-from newadx import *
+from adx import *
 
 
 def main():
