@@ -78,7 +78,7 @@ def main(comp):
             'SVC with polynomial (degree 3) kernel')
     for i in range(4): 
         X0=np.array([j[0] for j in X[i]])
-        X1=np.array([j[0] for j in X[i]])
+        X1=np.array([j[1] for j in X[i]])
         xx,yy=make_meshgrid(X0,X1)
         fig, sub = plt.subplots(2, 2)
         plt.subplots_adjust(wspace=0.4, hspace=0.4)
