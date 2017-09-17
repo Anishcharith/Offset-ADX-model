@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from newadx import *
+from adx import *
 from averages import *
 
 def main(comp,off):
