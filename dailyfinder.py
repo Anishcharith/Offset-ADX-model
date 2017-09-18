@@ -3,7 +3,6 @@ from averages import *
 from adx import *
 import math
 
-
 def main():
     comps=[[],[]]
     companies=pd.read_csv('nifty200.csv')
@@ -28,13 +27,13 @@ def main():
                     x=math.ceil(off/10)
                     if x=1 :
                         x=2
-                    comps.append((comp,1))
+                    comps.append((comp,x))
                     y=(closepoff[-1]+avgoff[-1])/(closepoff[-1]-avgoff[-1])
                     print('adx = '+str(a[-1]))
                     print('y   = '+str(y))
         except:
             pass
-    comps=set(comps) 
+    comps=list(set(comps)) 
     return comps
                         
             

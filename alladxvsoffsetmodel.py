@@ -6,7 +6,4 @@ def main(comps):
     NSE=companies['Symbol'].values[1:]
     for comp in comps:
         adxvsoffset.main(comp)
-
-main((('ACC',3)))
-
-
+    return
