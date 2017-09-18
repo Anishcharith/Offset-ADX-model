@@ -4,7 +4,7 @@ from adx import *
 import math
 
 def main():
-    comps=[[],[]]
+    comps=[]
     companies=pd.read_csv('nifty200.csv')
     NSE=companies['Symbol'].values
     for comp in NSE:
@@ -25,7 +25,7 @@ def main():
                     print(comp)
                     print(off)
                     x=math.ceil(off/10)
-                    if x=1 :
+                    if x==1 :
                         x=2
                     comps.append((comp,x))
                     y=(closepoff[-1]+avgoff[-1])/(closepoff[-1]-avgoff[-1])
