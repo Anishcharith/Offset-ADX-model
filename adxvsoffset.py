@@ -49,19 +49,20 @@ def main(comp):
     color=['green','purple','red','blue']
     C=1.0
     models=(svm.SVC(kernel='linear',C=C),
-            svm.LinearSVC(C=C),
-            svm.SVC(kernel='rbf',gamma=0.7,C=C),
+            #svm.LinearSVC(C=C),
+            #svm.SVC(kernel='rbf',gamma=0.7,C=C),
             svm.SVC(kernel='poly',degree=3,C=C))
     X,Y=collectpoints(comp)
     trainedmodels=trainmodel(models,X,Y)
     titles=('SVC with linear kernel',
-            'LinearSVC (linear kernel)',
-            'SVC with rbg kernel',
+            #'LinearSVC (linear kernel)',
+            #'SVC with rbg kernel',
             'SVC with polynomial (degree 3) kernel')
     X0=np.array([j[0] for j in X])
     X1=np.array([j[1] for j in X])
     xx,yy=make_meshgrid(X0,X1)
-    fig, sub = plt.subplots(2, 2)
+    fig, sub = plt.subplots(1, 2)
+    fig.suptitle(comp[0]+" "+str(comp[1]))
     plt.subplots_adjust(wspace=0.4, hspace=0.4)
     for clf,title,ax in zip(trainedmodels,titles,sub.flatten()):
         plot_contours(ax,clf,xx,yy,cmap=plt.cm.coolwarm, alpha=0.8)
@@ -70,4 +71,4 @@ def main(comp):
         ax.set_ylabel('price')
         ax.set_title(title)
     plt.show()
-
+    return
