@@ -1,10 +1,11 @@
 import pandas as pd
 from averages import *
 from adx import *
+import math
 
 
 def main():
-    comps=[]
+    comps=[[],[]]
     companies=pd.read_csv('nifty200.csv')
     NSE=companies['Symbol'].values
     for comp in NSE:
@@ -23,14 +24,17 @@ def main():
                 closepoff=closep[50+off:]
                 if len(closepoff)>1 and closepoff[-1]>offsetoff[-1] and closepoff[-2]<offsetoff[-2] and offsetoff[-1]>avgoff[-1]:
                     print(comp)
-                    comps.append(comp)
                     print(off)
+                    x=math.ceil(off/10)
+                    if x=1 :
+                        x=2
+                    comps.append((comp,1))
                     y=(closepoff[-1]+avgoff[-1])/(closepoff[-1]-avgoff[-1])
                     print('adx = '+str(a[-1]))
                     print('y   = '+str(y))
         except:
             pass
-                    
+    comps=set(comps) 
     return comps
                         
             
