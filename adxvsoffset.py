@@ -46,7 +46,8 @@ def main(comp):
     X=[]
     Y=[]
     trainedmodels=[]
-    color=['green','purple','red','blue']
+    color=['green','purple']
+    colors=[]
     C=1.0
     models=(svm.SVC(kernel='linear',C=C),
             #svm.LinearSVC(C=C),
@@ -64,11 +65,15 @@ def main(comp):
     fig, sub = plt.subplots(1, 2)
     fig.suptitle(comp[0]+" "+str(comp[1]))
     plt.subplots_adjust(wspace=0.4, hspace=0.4)
+    for i in range(len(Y)):
+        colors.append(color[Y[i]])
     for clf,title,ax in zip(trainedmodels,titles,sub.flatten()):
         plot_contours(ax,clf,xx,yy,cmap=plt.cm.coolwarm, alpha=0.8)
-        ax.scatter(X0, X1, c=Y, cmap=plt.cm.coolwarm, s=20, edgecolors='k')
+        ax.scatter(X0, X1, c=colors, cmap=plt.cm.coolwarm, s=20, edgecolors='k')
         ax.set_xlabel('adx')
         ax.set_ylabel('price')
         ax.set_title(title)
+    for ax in sub.flatten():
+        ax.scatter(comp[2],comp[3],color='black')
     plt.show()
     return

@@ -27,8 +27,8 @@ def main():
                     x=math.ceil(off/10)
                     if x==1 :
                         x=2
-                    comps.append((comp,x))
                     y=(closepoff[-1]+avgoff[-1])/(closepoff[-1]-avgoff[-1])
+                    comps.append((comp,x,a[-1],y))
                     print('adx = '+str(a[-1]))
                     print('y   = '+str(y))
         except:
