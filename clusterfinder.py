@@ -23,8 +23,11 @@ def main(x,y,r):
         nkmeans=cluster.KMeans(n_clusters=3)
         n=nkmeans.fit_predict(NX)
     except:
-        nkmeans=cluster.KMeans(n_clusters=1)
-        n=nkmeans.fit_predict(NX)
+        try:
+            nkmeans=cluster.KMeans(n_clusters=1)
+            n=nkmeans.fit_predict(NX)
+        except:
+            b=[0,0]
         
     if max(p)==0:
         a= pkmeans.cluster_center_[0]

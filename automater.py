@@ -1,10 +1,11 @@
 import alladxvsoffsetmodel
 import dailyfinder
+import adxvsoffset
 
 def main():
     companies=[]
     companies=dailyfinder.main()
-    alladxvsoffsetmodel.main(companies);
-
+    for comp in companies:
+        adxvsoffset.main(comp)
 
 main()
