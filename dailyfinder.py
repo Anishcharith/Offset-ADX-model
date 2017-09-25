@@ -1,13 +1,15 @@
 import pandas as pd
 from averages import *
 from adx import *
+import adxvsoffset
 import math
 
 def main():
-    comps=[]
+    compslist=[]
     companies=pd.read_csv('nifty.csv')
     NSE=companies['Symbol'].values
     for comp in NSE:
+        comps=[]
         data=pd.read_csv('data/'+comp+'.csv')
         closep=np.flipud(data['Close'].values)
         avg=avrg(closep,50)
@@ -30,5 +32,8 @@ def main():
                 comps.append((comp,x,a[-1],y))
                 print('adx = '+str(a[-1]))
                 print('y   = '+str(y))
-    comps=list(set(comps)) 
-    return comps
+        comps=list(set(comps)) 
+        for i in comps:
+            adxvsoffset.main(i)
+        compslist+=comps
+    return compslist
