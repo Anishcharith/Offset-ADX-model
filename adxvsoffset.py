@@ -76,4 +76,4 @@ def main(comp):
     for ax in sub.flatten():
         ax.scatter(comp[2],comp[3],color='black')
     plt.show()
-    return
+    return trainedmodels
