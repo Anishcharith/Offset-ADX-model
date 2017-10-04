@@ -4,7 +4,7 @@ from adx import *
 from averages import *
 
 def main(comp,off):
-    data=pd.read_csv('data/'+comp+'.csv')
+    data=pd.read_csv('../data/'+comp+'.csv')
     closep=np.flipud(data['Close'].values)
 
     avg=avrg(closep,50)

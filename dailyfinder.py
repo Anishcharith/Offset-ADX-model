@@ -10,7 +10,7 @@ def main():
     NSE=companies['Symbol'].values
     for comp in NSE:
         comps=[]
-        data=pd.read_csv('data/'+comp+'.csv')
+        data=pd.read_csv('../data/'+comp+'.csv')
         closep=np.flipud(data['Close'].values)
         avg=avrg(closep,50)
         for off in range(11,50):

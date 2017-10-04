@@ -75,7 +75,7 @@ def calcDIs():
     return PDIs,NDIs
 
 def ADX(comp):
-    data=pd.read_csv('data/'+comp+'.csv')
+    data=pd.read_csv('../data/'+comp+'.csv')
    
     global closep
     global openp
