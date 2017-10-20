@@ -55,7 +55,7 @@ def main(comp,day):
                 #print('avg ', avg_sell[len(avg_sell)-1])
                 #print('offset ', avgoff_sell[len(avgoff_sell)-1])
                 #print((avg_sell[len(avg_sell)-1])>=(avgoff_sell[len(avgoff_sell)-1]))  
-                if((avg_sell[len(avg_sell)-1])>=(avgoff_sell[len(avgoff_sell)-1])):
+                if(((avg_sell[len(avg_sell)-1])>=(avgoff_sell[len(avgoff_sell)-1]))||(close_sell[len(close_sell)-1]-buy)<(.05*buy)):
                     sell=list(close_sell)[-1]
                     break
                 j-=1
