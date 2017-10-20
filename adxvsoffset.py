@@ -3,6 +3,7 @@ from sklearn import svm , cluster
 import clusterfinder
 import adxmodel
 import matplotlib.pyplot as plt
+from sklearn.ensemble import AdaBoostClassifier
 import adxvsoffsetclassifier as clfi
 
 def make_meshgrid(x, y,h=0.2):
@@ -46,19 +47,23 @@ def main(comp):
     X=[]
     Y=[]
     trainedmodels=[]
-    color=['green','purple']
+    color=['red','green']
     colors=[]
     C=1.0
     models=(svm.SVC(kernel='linear',C=C),
             #svm.LinearSVC(C=C),
             #svm.SVC(kernel='rbf',gamma=0.7,C=C),
-            svm.SVC(kernel='poly',degree=3,C=C))
+            #svm.SVC(kernel='poly',degree=3,C=C)
+            AdaBoostClassifier(n_estimators=100)
+            )
     X,Y=collectpoints(comp)
     trainedmodels=trainmodel(models,X,Y)
     titles=('SVC with linear kernel',
             #'LinearSVC (linear kernel)',
             #'SVC with rbg kernel',
-            'SVC with polynomial (degree 3) kernel')
+            #'SVC with polynomial (degree 3) kernel'
+            'AdaBoostClassifier'
+            )
     X0=np.array([j[0] for j in X])
     X1=np.array([j[1] for j in X])
     xx,yy=make_meshgrid(X0,X1)

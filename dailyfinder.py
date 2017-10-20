@@ -30,8 +30,8 @@ def main():
                     x=2
                 y=(closepoff[-1]+avgoff[-1])/(closepoff[-1]-avgoff[-1])
                 comps.append((comp,x,a[-1],y))
-                print('adx = '+str(a[-1]))
-                print('y   = '+str(y))
+                #print('adx = '+str(a[-1]))
+                #print('y   = '+str(y))
         comps=list(set(comps)) 
         for i in comps:
             adxvsoffset.main(i)
