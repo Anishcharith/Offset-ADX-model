@@ -12,4 +12,4 @@ for comp in NIFTYnse:
         except:
             pass
     print(comp,test)
-print(test)
+print(total)
